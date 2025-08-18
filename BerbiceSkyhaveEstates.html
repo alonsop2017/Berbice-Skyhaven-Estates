@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Opportunity: Berbice Skyhaven Estates</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('Content/BSE Gate.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 120px;
+            height: auto;
+            z-index: 10;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            color: #FFD700;
+        }
+        
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+        
+        .hero-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        .section {
+            margin-bottom: 80px;
+            padding: 60px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section h2 {
+            color: #2c5530;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 2px;
+        }
+        
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .highlight-card {
+            background: linear-gradient(135deg, #2c5530, #3d6b42);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(44, 85, 48, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .highlight-card h3 {
+            color: #FFD700;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 15px;
+            color: #000;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+        
+        .features-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .features-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2c5530;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .investment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .investment-table th {
+            background: linear-gradient(135deg, #2c5530, #3d6b42);
+            color: #FFD700;
+            padding: 20px;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        .investment-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .investment-table tr:hover td {
+            background: rgba(255, 215, 0, 0.1);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #2c5530, #3d6b42);
+            color: white;
+            padding: 80px 60px;
+            text-align: center;
+            border-radius: 20px;
+            margin-top: 60px;
+        }
+        
+        .cta-section h2 {
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section .hero-cta {
+            margin-top: 30px;
+        }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+        
+        .contact-info h3 {
+            color: #2c5530;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item strong {
+            color: #2c5530;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #2c5530, #1a3d1e);
+            color: #FFD700;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 40px 30px;
+            }
+            
+            .container {
+                padding: 40px 15px;
+            }
+            
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <img src="Content/BSE Logo.jpg" alt="Berbice Skyhaven Estates Logo" class="logo">
+        <div class="hero-content">
+            <h1>Berbice Skyhaven Estates</h1>
+            <p class="subtitle">A Premier Aviation Community & Investment Opportunity in Guyana</p>
+            <a href="#investment" class="hero-cta">Discover the Opportunity</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <section id="overview" class="section">
+            <h2>Investment Opportunity Overview</h2>
+            <p>Berbice Skyhaven Estates represents a transformational investment opportunity in Guyana's booming economy. This premier 120-acre gated aviation community combines luxury residential living with a world-class airpark facility, positioned to capitalize on the world's fastest-growing economy.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">$170M</span>
+                    <span class="stat-label">Total Project Value</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">70%+</span>
+                    <span class="stat-label">Average ROI (10 Years)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">238</span>
+                    <span class="stat-label">Residential Units</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4,000ft</span>
+                    <span class="stat-label">Paved Runway</span>
+                </div>
+            </div>
+            
+            <p>Strategically positioned on the Courentyne Highway between New Amsterdam and the Suriname border, this development leverages Guyana's unprecedented economic growth driven by the oil and gas sector, creating an unparalleled opportunity for aviation enthusiasts and luxury living.</p>
+        </section>
+        
+        <section id="market" class="section">
+            <h2>Unparalleled Market Opportunity</h2>
+            <p>Guyana's economy is the world's fastest-growing, with GDP growth averaging 47% annually since 2022, projected to continue at 14% through 2029. This creates an unprecedented demand for luxury housing and aviation infrastructure.</p>
+            
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h3>🛩️ Aviation Excellence</h3>
+                    <p>4,000-foot paved runway with parallel taxiway, hangar homes with direct taxiway access, and comprehensive flight training facilities.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🏡 Luxury Living</h3>
+                    <p>238 premium residential units ranging from 2,000-3,712 sq ft, designed for the discerning buyer in Guyana's booming economy.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🌱 Sustainable Design</h3>
+                    <p>Innovative "Paddy Ponds" drainage system, elevated construction, and renewable energy infrastructure including solar and wind power.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🏆 Premium Amenities</h3>
+                    <p>Gated security, community center, swimming pool, recreational facilities, and comprehensive pedestrian/bicycle path network.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>💼 Strategic Targeting</h3>
+                    <p>Positioned for oil professionals, international expatriates, and affluent Guyanese seeking luxury aviation lifestyle.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>💰 Investment Incentives</h3>
+                    <p>Tax holidays, import duty exemptions, and robust government support for infrastructure development.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="team" class="section">
+            <h2>World-Class Leadership Team</h2>
+            <p>Our success is driven by a exceptional management team with decades of combined experience in engineering, business, aviation, and international development.</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Hardat A. Barran</h3>
+                    <h4>CEO & Founder</h4>
+                    <p>Seasoned engineer and businessman with 40+ years leading complex, hundred-million-dollar projects across the Americas. Over 4,000 pilot-in-command hours, owner of Cirrus SR22.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Trevor Barran</h3>
+                    <h4>Strategic Advisor</h4>
+                    <p>25+ years in investment strategy across multiple industries. Co-sponsored $230M proptech SPAC, aerospace engineering background from Princeton University.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Mohamed Ali</h3>
+                    <h4>Chief Financial Officer</h4>
+                    <p>30+ years in financial management, extensive Guyana construction experience, CPA with deep local market knowledge and connections.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Alonso Perez</h3>
+                    <h4>Chief Technology Officer</h4>
+                    <p>30+ years in enterprise systems and business transformation, specializing in AI and data analytics with international project experience.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="investment" class="section">
+            <h2>Investment Structure & Returns</h2>
+            <p>Berbice Skyhaven Estates offers institutional-quality investment opportunity with carefully structured phases and exceptional projected returns in one of the world's fastest-growing economies.</p>
+            
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h3>💰 Initial Investment</h3>
+                    <p><strong>$15 Million</strong><br>Initial funding for land acquisition, pre-planning, and Phase 1 infrastructure development.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>📈 ROI Projection</h3>
+                    <p><strong>70%+ Average ROI</strong><br>Over 10-year investment horizon with progressive cash flow generation.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🏗️ Total Project Value</h3>
+                    <p><strong>$170 Million</strong><br>Full development value with reinvested operational cash flows funding expansion.</p>
+                </div>
+            </div>
+            
+            <h3>Investment Breakdown</h3>
+            <table class="investment-table">
+                <tr><th>Investment Category</th><th>Amount (USD)</th><th>Percentage</th></tr>
+                <tr><td>Land Acquisition</td><td>$6,000,000</td><td>40%</td></tr>
+                <tr><td>Pre-Planning & Consulting</td><td>$1,000,000</td><td>7%</td></tr>
+                <tr><td>Phase 1 Infrastructure</td><td>$6,085,000</td><td>40%</td></tr>
+                <tr><td>Initial Aviation Facilities</td><td>$4,650,000</td><td>31%</td></tr>
+                <tr><td>Commercial Development</td><td>$500,000</td><td>3%</td></tr>
+                <tr><td>Contingency Reserve (20%)</td><td>$3,647,000</td><td>24%</td></tr>
+            </table>
+            
+            <p><strong>Revenue Streams:</strong> Residential unit sales ($58.6M from 238 units), commercial rentals, aviation services, flight training, community fees, and recreational facility memberships. Phased development approach minimizes risk while maximizing returns.</p>
+        </section>
+        
+        <section id="advantages" class="section">
+            <h2>Competitive Advantages & Risk Mitigation</h2>
+            <p>Our strategic approach combines local expertise with international best practices, creating a robust framework for success in Guyana's dynamic market.</p>
+            
+            <ul class="features-list">
+                <li><strong>Political Stability:</strong> Guyana's stable democratic government and policy continuity provide secure investment environment</li>
+                <li><strong>Economic Tailwinds:</strong> World's fastest-growing economy driven by oil and gas sector creates unprecedented demand</li>
+                <li><strong>Phased Development:</strong> Risk-minimized approach with each phase funded by previous phase cash flows</li>
+                <li><strong>Local Partnerships:</strong> Deep government connections and local construction expertise</li>
+                <li><strong>Currency Protection:</strong> USD-denominated sales protect against local currency fluctuations</li>
+                <li><strong>Insurance Coverage:</strong> Comprehensive coverage including political risk and construction insurance</li>
+                <li><strong>Contingency Planning:</strong> 20% contingency budget built into all financial projections</li>
+                <li><strong>Market Positioning:</strong> First-mover advantage in luxury aviation community segment</li>
+            </ul>
+        </section>
+        
+        <div class="cta-section">
+            <h2>Secure Your Investment Position</h2>
+            <p>Join us in creating Guyana's premier aviation community. This exceptional opportunity combines luxury living, aviation excellence, and outstanding financial returns in one of the world's most promising markets.</p>
+            <a href="mailto:Hardat.Barran@GenApex.org" class="hero-cta">Request Investment Package</a>
+            
+            <div class="contact-info">
+                <h3>Investment Inquiries</h3>
+                <div class="contact-item"><strong>Primary Contact:</strong> Hardat A. Barran, CEO</div>
+                <div class="contact-item"><strong>Company:</strong> Hardat A. Barran Engineering Inc. & GenApex Consortium</div>
+                <div class="contact-item"><strong>Address:</strong> 15 Tweed Cres, Toronto, Ontario, CANADA M1R 4A8</div>
+                <div class="contact-item"><strong>Tel:</strong> 615-474-0029</div>
+                <div class="contact-item"><strong>Email:</strong> Hardat.Barran@GenApex.org</div>
+                <div class="contact-item"><strong>Website:</strong> GenApex.org</div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 GenApex Consortium & Hardat A. Barran Engineering Inc. All rights reserved.</p>
+        <p>Berbice Skyhaven Estates - Where Aviation Meets Luxury Living</p>
+    </footer>
+</body>
+</html>
