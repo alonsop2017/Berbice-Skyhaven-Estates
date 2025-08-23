@@ -302,6 +302,141 @@
     </style>
 </head>
 <body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add click functionality to highlight cards
+            document.querySelectorAll('.highlight-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    // Add visual feedback
+                    this.style.transform = 'translateY(-15px)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-10px)';
+                    }, 150);
+                    
+                    // Get card title and show info
+                    const title = this.querySelector('h3').textContent;
+                    const description = this.querySelector('p').textContent;
+                    
+                    // Show detailed information in an alert (can be replaced with modal later)
+                    alert(`${title}\n\n${description}`);
+                });
+                
+                // Make cards appear clickable
+                card.style.cursor = 'pointer';
+            });
+
+            // Add click functionality to team members
+            document.querySelectorAll('.team-member').forEach(member => {
+                member.addEventListener('click', function() {
+                    // Add visual feedback
+                    this.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                    
+                    // Get team member info
+                    const name = this.querySelector('h3').textContent;
+                    const title = this.querySelector('h4').textContent;
+                    const bio = this.querySelector('p').textContent;
+                    
+                    // Show team member details
+                    alert(`${name}\n${title}\n\n${bio}`);
+                });
+                
+                // Make team members appear clickable
+                member.style.cursor = 'pointer';
+            });
+
+            // Add click functionality to stat items
+            document.querySelectorAll('.stat-item').forEach(stat => {
+                stat.addEventListener('click', function() {
+                    // Add visual feedback
+                    this.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                    
+                    const number = this.querySelector('.stat-number').textContent;
+                    const label = this.querySelector('.stat-label').textContent;
+                    
+                    // Show additional context for each stat
+                    let details = '';
+                    switch(label) {
+                        case 'Total Project Value':
+                            details = 'This represents the complete development value upon project completion, including all residential units, aviation facilities, and commercial spaces.';
+                            break;
+                        case 'Average ROI (10 Years)':
+                            details = 'Based on projected cash flows from residential sales, aviation services, and commercial rentals over a 10-year investment horizon.';
+                            break;
+                        case 'Residential Units':
+                            details = 'Premium homes ranging from 2,000-3,712 sq ft, including hangar homes with direct taxiway access for aviation enthusiasts.';
+                            break;
+                        case 'Paved Runway':
+                            details = 'Professional-grade runway with parallel taxiway, designed for aircraft up to King Air turboprops, including full air traffic services.';
+                            break;
+                        default:
+                            details = 'Key project metric for Berbice Skyhaven Estates development.';
+                    }
+                    
+                    alert(`${label}: ${number}\n\n${details}`);
+                });
+                
+                // Make stats appear clickable
+                stat.style.cursor = 'pointer';
+            });
+
+            // Add hover effects to investment table rows
+            document.querySelectorAll('.investment-table tr').forEach(row => {
+                if (!row.querySelector('th')) { // Skip header row
+                    row.addEventListener('click', function() {
+                        const category = this.cells[0].textContent;
+                        const amount = this.cells[1].textContent;
+                        const percentage = this.cells[2].textContent;
+                        
+                        let details = '';
+                        switch(category) {
+                            case 'Land Acquisition':
+                                details = 'Purchase of 120 acres of prime real estate along the Courentyne Highway, including all legal fees and government approvals.';
+                                break;
+                            case 'Pre-Planning & Consulting':
+                                details = 'Architectural design, engineering studies, environmental assessments, and regulatory approval processes.';
+                                break;
+                            case 'Phase 1 Infrastructure':
+                                details = 'Road construction, utilities installation, drainage systems, and basic community infrastructure for initial development phase.';
+                                break;
+                            case 'Initial Aviation Facilities':
+                                details = 'Runway construction, taxiways, hangar foundations, air traffic control systems, and basic aviation support facilities.';
+                                break;
+                            case 'Commercial Development':
+                                details = 'Initial commercial spaces including community center, retail areas, and administrative facilities.';
+                                break;
+                            case 'Contingency Reserve (20%)':
+                                details = 'Risk mitigation fund to cover unexpected costs, regulatory changes, or market fluctuations during development.';
+                                break;
+                        }
+                        
+                        alert(`${category}\n${amount} (${percentage})\n\n${details}`);
+                    });
+                    
+                    row.style.cursor = 'pointer';
+                }
+            });
+        });
+    </script>
     <div class="hero-section">
         <img src="Content/BSE Logo.jpg" alt="Berbice Skyhaven Estates Logo" class="logo">
         <div class="hero-content">
@@ -345,27 +480,27 @@
             <div class="highlights">
                 <div class="highlight-card">
                     <h3>🛩️ Aviation Excellence</h3>
-                    <p>4,000-foot paved runway with parallel taxiway, hangar homes with direct taxiway access, and comprehensive flight training facilities.</p>
+                    <p>4,000-foot paved runway with parallel taxiway designed for aircraft up to King Air turboprops. Hangar homes feature direct taxiway access with 60x60ft hangars. Complete with flight training academy, maintenance facilities, and 24/7 air traffic services.</p>
                 </div>
                 <div class="highlight-card">
                     <h3>🏡 Luxury Living</h3>
-                    <p>238 premium residential units ranging from 2,000-3,712 sq ft, designed for the discerning buyer in Guyana's booming economy.</p>
+                    <p>238 premium residential units from 2,000-3,712 sq ft featuring elevated construction, hurricane-resistant design, and luxury finishes. Each home includes covered parking, private outdoor spaces, and optional hangar attachment for aviation enthusiasts.</p>
                 </div>
                 <div class="highlight-card">
                     <h3>🌱 Sustainable Design</h3>
-                    <p>Innovative "Paddy Ponds" drainage system, elevated construction, and renewable energy infrastructure including solar and wind power.</p>
+                    <p>Innovative "Paddy Ponds" natural drainage system manages seasonal flooding while creating beautiful water features. Solar panel installations, wind power generation, and rainwater harvesting systems ensure energy independence and environmental responsibility.</p>
                 </div>
                 <div class="highlight-card">
                     <h3>🏆 Premium Amenities</h3>
-                    <p>Gated security, community center, swimming pool, recreational facilities, and comprehensive pedestrian/bicycle path network.</p>
+                    <p>Gated security with 24/7 monitoring, resort-style community center with swimming pool and fitness facilities. Tennis courts, children's playground, walking trails, and dedicated bicycle paths throughout the 120-acre community.</p>
                 </div>
                 <div class="highlight-card">
                     <h3>💼 Strategic Targeting</h3>
-                    <p>Positioned for oil professionals, international expatriates, and affluent Guyanese seeking luxury aviation lifestyle.</p>
+                    <p>Positioned for oil & gas executives, mining industry professionals, international business leaders, and aviation enthusiasts. Located on the Courentyne Highway for easy access to New Amsterdam and Suriname border crossings.</p>
                 </div>
                 <div class="highlight-card">
                     <h3>💰 Investment Incentives</h3>
-                    <p>Tax holidays, import duty exemptions, and robust government support for infrastructure development.</p>
+                    <p>Tax holidays for foreign investors, import duty exemptions on construction materials and aircraft, government infrastructure support, and favorable land acquisition terms. USD-denominated pricing protects against currency fluctuation.</p>
                 </div>
             </div>
         </section>
