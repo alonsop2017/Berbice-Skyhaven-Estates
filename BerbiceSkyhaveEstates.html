@@ -133,6 +133,10 @@
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(44, 85, 48, 0.3);
             transition: transform 0.3s ease;
+            perspective: 1000px;
+            height: 200px;
+            position: relative;
+            cursor: pointer;
         }
         
         .highlight-card:hover {
@@ -143,6 +147,55 @@
             color: #FFD700;
             font-size: 1.3rem;
             margin-bottom: 15px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .highlight-card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #2c5530, #3d6b42);
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #3d6b42, #2c5530);
+            transform: rotateY(180deg);
+            padding: 20px;
+        }
+
+        .card-back h3 {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .card-back p {
+            color: white;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0;
         }
         
         .stats-grid {
@@ -159,6 +212,60 @@
             border-radius: 15px;
             color: #000;
             box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            perspective: 1000px;
+            height: 120px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .stat-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .stat-item.flipped .stat-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .stat-front, .stat-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat-front {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+        }
+
+        .stat-back {
+            background: linear-gradient(135deg, #FFA500, #FFD700);
+            transform: rotateY(180deg);
+            padding: 15px;
+            color: #000;
+        }
+
+        .stat-back h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .stat-back p {
+            font-size: 0.8rem;
+            line-height: 1.3;
+            margin: 0;
         }
         
         .stat-number {
@@ -233,6 +340,64 @@
             background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            perspective: 1000px;
+            height: 280px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .team-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .team-member.flipped .team-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .team-front, .team-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .team-back {
+            transform: rotateY(180deg);
+            padding: 20px;
+            background: rgba(44, 85, 48, 0.95);
+            color: white;
+        }
+
+        .team-back h3 {
+            color: #FFD700;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .team-back h4 {
+            color: #FFD700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .team-back p {
+            color: white;
+            font-size: 0.85rem;
+            line-height: 1.3;
+            margin: 0;
         }
         
         .cta-section {
@@ -321,82 +486,25 @@
             // Add click functionality to highlight cards
             document.querySelectorAll('.highlight-card').forEach(card => {
                 card.addEventListener('click', function() {
-                    // Add visual feedback
-                    this.style.transform = 'translateY(-15px)';
-                    setTimeout(() => {
-                        this.style.transform = 'translateY(-10px)';
-                    }, 150);
-                    
-                    // Get card title and show info
-                    const title = this.querySelector('h3').textContent;
-                    const description = this.querySelector('p').textContent;
-                    
-                    // Show detailed information in an alert (can be replaced with modal later)
-                    alert(`${title}\n\n${description}`);
+                    // Toggle flip state
+                    this.classList.toggle('flipped');
                 });
-                
-                // Make cards appear clickable
-                card.style.cursor = 'pointer';
             });
 
             // Add click functionality to team members
             document.querySelectorAll('.team-member').forEach(member => {
                 member.addEventListener('click', function() {
-                    // Add visual feedback
-                    this.style.transform = 'scale(1.05)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 200);
-                    
-                    // Get team member info
-                    const name = this.querySelector('h3').textContent;
-                    const title = this.querySelector('h4').textContent;
-                    const bio = this.querySelector('p').textContent;
-                    
-                    // Show team member details
-                    alert(`${name}\n${title}\n\n${bio}`);
+                    // Toggle flip state
+                    this.classList.toggle('flipped');
                 });
-                
-                // Make team members appear clickable
-                member.style.cursor = 'pointer';
             });
 
             // Add click functionality to stat items
             document.querySelectorAll('.stat-item').forEach(stat => {
                 stat.addEventListener('click', function() {
-                    // Add visual feedback
-                    this.style.transform = 'scale(1.1)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 200);
-                    
-                    const number = this.querySelector('.stat-number').textContent;
-                    const label = this.querySelector('.stat-label').textContent;
-                    
-                    // Show additional context for each stat
-                    let details = '';
-                    switch(label) {
-                        case 'Total Project Value':
-                            details = 'This represents the complete development value upon project completion, including all residential units, aviation facilities, and commercial spaces.';
-                            break;
-                        case 'Average ROI (10 Years)':
-                            details = 'Based on projected cash flows from residential sales, aviation services, and commercial rentals over a 10-year investment horizon.';
-                            break;
-                        case 'Residential Units':
-                            details = 'Premium homes ranging from 2,000-3,712 sq ft, including hangar homes with direct taxiway access for aviation enthusiasts.';
-                            break;
-                        case 'Paved Runway':
-                            details = 'Professional-grade runway with parallel taxiway, designed for aircraft up to King Air turboprops, including full air traffic services.';
-                            break;
-                        default:
-                            details = 'Key project metric for Berbice Skyhaven Estates development.';
-                    }
-                    
-                    alert(`${label}: ${number}\n\n${details}`);
+                    // Toggle flip state
+                    this.classList.toggle('flipped');
                 });
-                
-                // Make stats appear clickable
-                stat.style.cursor = 'pointer';
             });
 
             // Add hover effects to investment table rows
@@ -453,20 +561,52 @@
             
             <div class="stats-grid">
                 <div class="stat-item">
-                    <span class="stat-number">$170M</span>
-                    <span class="stat-label">Total Project Value</span>
+                    <div class="stat-card-inner">
+                        <div class="stat-front">
+                            <span class="stat-number">$170M</span>
+                            <span class="stat-label">Total Project Value</span>
+                        </div>
+                        <div class="stat-back">
+                            <h4>Total Project Value: $170M</h4>
+                            <p>This represents the complete development value upon project completion, including all residential units, aviation facilities, and commercial spaces.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">70%+</span>
-                    <span class="stat-label">Average ROI (10 Years)</span>
+                    <div class="stat-card-inner">
+                        <div class="stat-front">
+                            <span class="stat-number">70%+</span>
+                            <span class="stat-label">Average ROI (10 Years)</span>
+                        </div>
+                        <div class="stat-back">
+                            <h4>Average ROI: 70%+</h4>
+                            <p>Based on projected cash flows from residential sales, aviation services, and commercial rentals over a 10-year investment horizon.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">238</span>
-                    <span class="stat-label">Residential Units</span>
+                    <div class="stat-card-inner">
+                        <div class="stat-front">
+                            <span class="stat-number">238</span>
+                            <span class="stat-label">Residential Units</span>
+                        </div>
+                        <div class="stat-back">
+                            <h4>Residential Units: 238</h4>
+                            <p>Premium homes ranging from 2,000-3,712 sq ft, including hangar homes with direct taxiway access for aviation enthusiasts.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">4,000ft</span>
-                    <span class="stat-label">Paved Runway</span>
+                    <div class="stat-card-inner">
+                        <div class="stat-front">
+                            <span class="stat-number">4,000ft</span>
+                            <span class="stat-label">Paved Runway</span>
+                        </div>
+                        <div class="stat-back">
+                            <h4>Paved Runway: 4,000ft</h4>
+                            <p>Professional-grade runway with parallel taxiway, designed for aircraft up to King Air turboprops, including full air traffic services.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -479,28 +619,76 @@
             
             <div class="highlights">
                 <div class="highlight-card">
-                    <h3>🛩️ Aviation Excellence</h3>
-                    <p>4,000-foot paved runway with parallel taxiway designed for aircraft up to King Air turboprops. Hangar homes feature direct taxiway access with 60x60ft hangars. Complete with flight training academy, maintenance facilities, and 24/7 air traffic services.</p>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>🛩️ Aviation Excellence</h3>
+                            <p>Click to learn more</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>🛩️ Aviation Excellence</h3>
+                            <p>4,000-foot paved runway with parallel taxiway designed for aircraft up to King Air turboprops. Hangar homes feature direct taxiway access with 60x60ft hangars. Complete with flight training academy, maintenance facilities, and 24/7 air traffic services.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="highlight-card">
-                    <h3>🏡 Luxury Living</h3>
-                    <p>238 premium residential units from 2,000-3,712 sq ft featuring elevated construction, hurricane-resistant design, and luxury finishes. Each home includes covered parking, private outdoor spaces, and optional hangar attachment for aviation enthusiasts.</p>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>🏡 Luxury Living</h3>
+                            <p>Click to learn more</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>🏡 Luxury Living</h3>
+                            <p>238 premium residential units from 2,000-3,712 sq ft featuring elevated construction, hurricane-resistant design, and luxury finishes. Each home includes covered parking, private outdoor spaces, and optional hangar attachment for aviation enthusiasts.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="highlight-card">
-                    <h3>🌱 Sustainable Design</h3>
-                    <p>Innovative "Paddy Ponds" natural drainage system manages seasonal flooding while creating beautiful water features. Solar panel installations, wind power generation, and rainwater harvesting systems ensure energy independence and environmental responsibility.</p>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>🌱 Sustainable Design</h3>
+                            <p>Click to learn more</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>🌱 Sustainable Design</h3>
+                            <p>Innovative "Paddy Ponds" natural drainage system manages seasonal flooding while creating beautiful water features. Solar panel installations, wind power generation, and rainwater harvesting systems ensure energy independence and environmental responsibility.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="highlight-card">
-                    <h3>🏆 Premium Amenities</h3>
-                    <p>Gated security with 24/7 monitoring, resort-style community center with swimming pool and fitness facilities. Tennis courts, children's playground, walking trails, and dedicated bicycle paths throughout the 120-acre community.</p>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>🏆 Premium Amenities</h3>
+                            <p>Click to learn more</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>🏆 Premium Amenities</h3>
+                            <p>Gated security with 24/7 monitoring, resort-style community center with swimming pool and fitness facilities. Tennis courts, children's playground, walking trails, and dedicated bicycle paths throughout the 120-acre community.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="highlight-card">
-                    <h3>💼 Strategic Targeting</h3>
-                    <p>Positioned for oil & gas executives, mining industry professionals, international business leaders, and aviation enthusiasts. Located on the Courentyne Highway for easy access to New Amsterdam and Suriname border crossings.</p>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>💼 Strategic Targeting</h3>
+                            <p>Click to learn more</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>💼 Strategic Targeting</h3>
+                            <p>Positioned for oil & gas executives, mining industry professionals, international business leaders, and aviation enthusiasts. Located on the Courentyne Highway for easy access to New Amsterdam and Suriname border crossings.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="highlight-card">
-                    <h3>💰 Investment Incentives</h3>
-                    <p>Tax holidays for foreign investors, import duty exemptions on construction materials and aircraft, government infrastructure support, and favorable land acquisition terms. USD-denominated pricing protects against currency fluctuation.</p>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>💰 Investment Incentives</h3>
+                            <p>Click to learn more</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>💰 Investment Incentives</h3>
+                            <p>Tax holidays for foreign investors, import duty exemptions on construction materials and aircraft, government infrastructure support, and favorable land acquisition terms. USD-denominated pricing protects against currency fluctuation.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -511,24 +699,60 @@
             
             <div class="team-grid">
                 <div class="team-member">
-                    <h3>Hardat A. Barran</h3>
-                    <h4>CEO & Founder</h4>
-                    <p>Seasoned engineer and businessman with 40+ years leading complex, hundred-million-dollar projects across the Americas. Over 4,000 pilot-in-command hours, owner of Cirrus SR22.</p>
+                    <div class="team-card-inner">
+                        <div class="team-front">
+                            <h3>Hardat A. Barran</h3>
+                            <h4>CEO & Founder</h4>
+                            <p>Click to learn more</p>
+                        </div>
+                        <div class="team-back">
+                            <h3>Hardat A. Barran</h3>
+                            <h4>CEO & Founder</h4>
+                            <p>Seasoned engineer and businessman with 40+ years leading complex, hundred-million-dollar projects across the Americas. Over 4,000 pilot-in-command hours, owner of Cirrus SR22.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="team-member">
-                    <h3>Trevor Barran</h3>
-                    <h4>Strategic Advisor</h4>
-                    <p>25+ years in investment strategy across multiple industries. Co-sponsored $230M proptech SPAC, aerospace engineering background from Princeton University.</p>
+                    <div class="team-card-inner">
+                        <div class="team-front">
+                            <h3>Trevor Barran</h3>
+                            <h4>Strategic Advisor</h4>
+                            <p>Click to learn more</p>
+                        </div>
+                        <div class="team-back">
+                            <h3>Trevor Barran</h3>
+                            <h4>Strategic Advisor</h4>
+                            <p>25+ years in investment strategy across multiple industries. Co-sponsored $230M proptech SPAC, aerospace engineering background from Princeton University.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="team-member">
-                    <h3>Mohamed Ali</h3>
-                    <h4>Chief Financial Officer</h4>
-                    <p>30+ years in financial management, extensive Guyana construction experience, CPA with deep local market knowledge and connections.</p>
+                    <div class="team-card-inner">
+                        <div class="team-front">
+                            <h3>Mohamed Ali</h3>
+                            <h4>Chief Financial Officer</h4>
+                            <p>Click to learn more</p>
+                        </div>
+                        <div class="team-back">
+                            <h3>Mohamed Ali</h3>
+                            <h4>Chief Financial Officer</h4>
+                            <p>30+ years in financial management, extensive Guyana construction experience, CPA with deep local market knowledge and connections.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="team-member">
-                    <h3>Alonso Perez</h3>
-                    <h4>Chief Technology Officer</h4>
-                    <p>30+ years in enterprise systems and business transformation, specializing in AI and data analytics with international project experience.</p>
+                    <div class="team-card-inner">
+                        <div class="team-front">
+                            <h3>Alonso Perez</h3>
+                            <h4>Chief Technology Officer</h4>
+                            <p>Click to learn more</p>
+                        </div>
+                        <div class="team-back">
+                            <h3>Alonso Perez</h3>
+                            <h4>Chief Technology Officer</h4>
+                            <p>30+ years in enterprise systems and business transformation, specializing in AI and data analytics with international project experience.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
