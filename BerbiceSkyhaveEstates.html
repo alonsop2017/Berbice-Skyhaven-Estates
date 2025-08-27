@@ -197,6 +197,69 @@
             line-height: 1.4;
             margin: 0;
         }
+
+        .feature-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+        }
+
+        .image-gallery {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .section-with-image {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .section-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .section-image {
+            flex: 0 0 400px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .section-with-image {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .section-image {
+                flex: none;
+            }
+            
+            .image-gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
         
         .stats-grid {
             display: grid;
@@ -691,6 +754,11 @@
                     </div>
                 </div>
             </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <img src="Content/Hangar Home.jpg" alt="Hangar Home at Berbice Skyhaven Estates" class="feature-image">
+                <p style="font-style: italic; color: #555; margin-top: 10px;">Hangar Home - Direct taxiway access for your aircraft</p>
+            </div>
         </section>
         
         <section id="team" class="section">
@@ -753,6 +821,22 @@
                             <p>30+ years in enterprise systems and business transformation, specializing in AI and data analytics with international project experience.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Luxury Living Showcase</h2>
+            <p>Experience the pinnacle of luxury living in Guyana with our premium residential designs. Each home is meticulously crafted with high-end finishes, elevated construction, and thoughtful architectural details.</p>
+            
+            <div class="image-gallery">
+                <div>
+                    <img src="Content/Luxury Home (front).jpg" alt="Luxury Home Front View - Berbice Skyhaven Estates">
+                    <p style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">Premium Residential Home - Front Elevation</p>
+                </div>
+                <div>
+                    <img src="Content/Luxury home (back).jpg" alt="Luxury Home Back View - Berbice Skyhaven Estates">
+                    <p style="text-align: center; font-style: italic; color: #555; margin-top: 10px;">Premium Residential Home - Rear View with Outdoor Living</p>
                 </div>
             </div>
         </section>
