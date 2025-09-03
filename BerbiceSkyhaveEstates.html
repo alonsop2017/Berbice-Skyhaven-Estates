@@ -164,22 +164,37 @@
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
             border-radius: 15px;
             padding: 30px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            overflow: hidden;
         }
 
         .card-front {
             background: linear-gradient(135deg, #2c5530, #3d6b42);
+            opacity: 1;
+            transition: opacity 0.3s ease;
         }
 
         .card-back {
             background: linear-gradient(135deg, #3d6b42, #2c5530);
             transform: rotateY(180deg);
             padding: 20px;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .highlight-card.flipped .card-front {
+            opacity: 0;
+        }
+
+        .highlight-card.flipped .card-back {
+            opacity: 1;
         }
 
         .card-back h3 {
