@@ -518,6 +518,79 @@
             color: #2c5530;
         }
         
+        .gallery-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            margin: 40px 0;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .gallery-section h2 {
+            color: #2c5530;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .gallery-section p {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .gallery-overlay h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: #FFD700;
+        }
+        
         footer {
             background: linear-gradient(135deg, #2c5530, #1a3d1e);
             color: #FFD700;
@@ -659,6 +732,18 @@
                         <div class="stat-back">
                             <h4>Residential Units: 209</h4>
                             <p>Premium homes including luxury townhouses, estate lots, and hangar homes with direct taxiway access for aviation enthusiasts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-card-inner">
+                        <div class="stat-front">
+                            <span class="stat-number">53%</span>
+                            <span class="stat-label">Average ROI (10 Years)</span>
+                        </div>
+                        <div class="stat-back">
+                            <h4>Average ROI: 53%</h4>
+                            <p>Based on conservative projections from residential sales, aviation services, commercial rentals, and community fees over a 10-year investment horizon.</p>
                         </div>
                     </div>
                 </div>
@@ -852,6 +937,18 @@
                 <div class="highlight-card">
                     <div class="card-inner">
                         <div class="card-front">
+                            <h3>📈 ROI Projection</h3>
+                            <p><strong>53% Average ROI</strong><br>Click to learn more</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>📈 ROI Projection</h3>
+                            <p><strong>53% Average ROI</strong><br>Over 10-year investment horizon with progressive cash flow generation from residential sales, aviation services, commercial rentals, and community fees. Conservative projections based on Guyana's economic growth and luxury housing demand.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <div class="card-inner">
+                        <div class="card-front">
                             <h3>🏗️ Total Project Value</h3>
                             <p><strong>$111.7 Million</strong><br>Click to learn more</p>
                         </div>
@@ -875,6 +972,55 @@
             </table>
             
             <p><strong>Revenue Streams:</strong> Residential unit sales from 209 units (luxury townhouses, estate lots, and hangar homes), commercial rentals, aviation services, flight training, community fees, and recreational facility memberships. Phased development approach minimizes risk while maximizing returns.</p>
+        </section>
+        
+        <section class="gallery-section">
+            <h2>Model Home Gallery</h2>
+            <p>Explore our stunning collection of luxury residential designs, featuring modern architecture, premium finishes, and climate-optimized layouts for the ultimate tropical living experience.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="Content/Luxury Home (front).jpg" alt="Luxury Home Front View">
+                    <div class="gallery-overlay">
+                        <h3>Luxury Estate Home - Front</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="Content/Luxury home (back).jpg" alt="Luxury Home Back View">
+                    <div class="gallery-overlay">
+                        <h3>Luxury Estate Home - Back</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="Content/Hangar Home.jpg" alt="Hangar Home">
+                    <div class="gallery-overlay">
+                        <h3>Aviation Hangar Home</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="Content/The_Beach_Model.jpg" alt="Beach Model Home">
+                    <div class="gallery-overlay">
+                        <h3>Waterfront Beach Model</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="Content/il_1588xN.5161047914_bb0y.jpg" alt="Modern Luxury Home">
+                    <div class="gallery-overlay">
+                        <h3>Contemporary Design</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="Content/il_1588xN.5644924394_1rlg.jpg" alt="Premium Estate Home">
+                    <div class="gallery-overlay">
+                        <h3>Premium Estate Design</h3>
+                    </div>
+                </div>
+            </div>
         </section>
         
         <section id="advantages" class="section">
