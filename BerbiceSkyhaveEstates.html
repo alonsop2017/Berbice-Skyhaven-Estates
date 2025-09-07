@@ -175,29 +175,21 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            transform-style: preserve-3d;
         }
 
         .card-front {
             background: linear-gradient(135deg, #2c5530, #3d6b42);
-            opacity: 1;
-            transition: opacity 0.3s ease;
+            transform: rotateY(0deg);
+            z-index: 2;
         }
 
         .card-back {
             background: linear-gradient(135deg, #3d6b42, #2c5530);
             transform: rotateY(180deg);
             padding: 15px;
-            opacity: 1;
-            transition: opacity 0.3s ease;
             justify-content: flex-start;
-        }
-
-        .highlight-card.flipped .card-front {
-            opacity: 0;
-        }
-
-        .highlight-card.flipped .card-back {
-            opacity: 1;
+            z-index: 1;
         }
 
         .card-back h3 {
