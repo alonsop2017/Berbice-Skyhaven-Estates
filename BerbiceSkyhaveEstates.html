@@ -307,17 +307,22 @@
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
             border-radius: 15px;
             padding: 20px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            transform-style: preserve-3d;
         }
 
         .stat-front {
             background: linear-gradient(135deg, #FFD700, #FFA500);
             color: #000;
+            transform: rotateY(0deg);
+            z-index: 2;
         }
 
         .stat-back {
@@ -325,6 +330,7 @@
             transform: rotateY(180deg);
             padding: 15px;
             color: #000;
+            z-index: 1;
         }
 
         .stat-back h4 {
